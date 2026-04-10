@@ -1,0 +1,30 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env/
+.venv/
+env/
+venv/
+
+# Build & distribution
+build/
+dist/
+*.spec
+
+# Local app data
+config.json
+Exports/
+Logs/
+Archive/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDE / tooling
+.vscode/
+.idea/
+*.code-workspace
