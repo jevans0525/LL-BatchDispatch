@@ -26,11 +26,19 @@ jobs:
     - name: Build with PyInstaller
       run: |
         pyinstaller --noconfirm --clean --onefile --windowed --name BatchDispatch --add-data "resources/templates;resources/templates" app.py
-
+    
+    - name: Compile Inno Setup
+      run: |
+          iscc setup.iss
+    
     - name: Create Release
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
-        files: dist/BatchDispatch.exe
+        files: release_config.yml
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+        
+
+    
