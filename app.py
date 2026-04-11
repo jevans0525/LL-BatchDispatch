@@ -525,8 +525,7 @@ class MainWindow(QMainWindow):
     def show_about_dialog(self):
         QMessageBox.about(self, "About BatchDispatch", 
             "<b>BatchDispatch</b><br><br>"
-            "A specialized tool for Lasagna Love volunteers to manage outreach and deliveries.<br>"
-            "Version 1.0.0")
+            "A specialized tool for Lasagna Love volunteers to manage outreach and deliveries.<br>")
 
     def toggle_dock(self, checked):
         self.dock.setVisible(checked)
