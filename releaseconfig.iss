@@ -1,3 +1,4 @@
+[Setup]
 define MyAppName "LLBatchDispatch"
 define MyAppVersion "0.9"
 define MyAppPublisher "Dragonwire and LasagnaLove"
@@ -5,7 +6,7 @@ define MyAppURL "https://www.lasagnalove.org"
 define MyAppExeName "BatchDispatch.exe"
 #define MyAppName "LLBatchDispatch"
 
-[Setup]
+
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{27C561EB-11D3-4795-A2CF-32D14EA721CB}
