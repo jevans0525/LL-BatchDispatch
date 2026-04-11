@@ -25,7 +25,7 @@ jobs:
 
     - name: Build with PyInstaller
       run: |
-        pyinstaller --noconfirm --clean --onefile --windowed --name BatchDispatch --add-data "templates;templates" app.py
+        pyinstaller --noconfirm --clean --onefile --windowed --name BatchDispatch --add-data "resources/templates;resources/templates" app.py
 
     - name: Create Release
       id: create_release
