@@ -34,8 +34,6 @@ from models import TrackingModel
 import parsing
 import reports
 
-VERSION = "1.0.0"
-
 APP_DIR = Path.home() / ".batch_dispatch_app"
 RESOURCES_DIR = Path(__file__).parent / "resources"
 CONFIG_PATH = APP_DIR / "config.json"
@@ -533,7 +531,7 @@ class MainWindow(QMainWindow):
 
     def show_about_dialog(self):
         QMessageBox.about(self, "About BatchDispatch", 
-            "<b>BatchDispatch</b><br><br>"
+            f"<b>BatchDispatch v{parsing.VERSION}</b><br><br>"
             "A specialized tool for Lasagna Love volunteers to manage outreach and deliveries.<br>")
 
     def check_for_updates(self, manual=False):
@@ -549,12 +547,12 @@ class MainWindow(QMainWindow):
                 # Proper version comparison
                 def v_tuple(v): return tuple(map(int, (re.sub(r'[^0-9.]', '', v).split('.'))))
                 
-                if v_tuple(latest_version) > v_tuple(VERSION):
+                if v_tuple(latest_version) > v_tuple(parsing.VERSION):
                     self.update_detected.emit(latest_version, download_url)
                 elif manual:
                     # Manual check needs to return to main thread too
                     QTimer.singleShot(0, lambda: QMessageBox.information(
-                        self, "Up to Date", f"You are running the latest version (v{VERSION})."))
+                        self, "Up to Date", f"You are running the latest version (v{parsing.VERSION})."))
         except Exception as e:
             error_text = str(e)
             logging.error(f"Failed to check for updates: {error_text}")

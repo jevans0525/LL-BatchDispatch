@@ -7,6 +7,8 @@ from __future__ import annotations
 from typing import List, Tuple
 import pandas as pd
 
+VERSION = "1.0.0"
+
 # ------------------------------ Canonical headers ------------------------------
 
 CANONICAL_DATA_HEADERS: List[str] = [
