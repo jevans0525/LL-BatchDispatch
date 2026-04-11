@@ -1,0 +1,9 @@
+Hi [First Name], my name is [MyName] with Lasagna Love.
+I am planning to drop off your requested lasagna to the address below on [Scheduled] between [Delivery Start] and [Delivery Stop].
+I will just need to confirm the following details with you:
+Allergies: [Gluten-Free], [Dairy-Free], [Nut Allergy], [Other Allergy]
+Feeding: [Family Size]
+Address: [Address 1] [Address 2], [City]
+
+To ensure your lasagna gets to you, please confirm all the information above is still accurate.
+Additionally, if your front door is not visible from the street or driveway, please let me know how to find you!

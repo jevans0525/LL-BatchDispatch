@@ -534,8 +534,7 @@ class MainWindow(QMainWindow):
     def show_about_dialog(self):
         QMessageBox.about(self, "About BatchDispatch", 
             "<b>BatchDispatch</b><br><br>"
-            "A specialized tool for Lasagna Love volunteers to manage outreach and deliveries.<br>"
-            "Version 1.0.0")
+            "A specialized tool for Lasagna Love volunteers to manage outreach and deliveries.<br>")
 
     def check_for_updates(self, manual=False):
         """Checks a remote URL for the latest version string."""

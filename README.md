@@ -19,6 +19,29 @@ Configuration: Access the Settings menu (Ctrl+,) to set your default date format
 
 We have built specific features to solve the unique "last mile" challenges of volunteer delivery.
 
+🔒 Security, Trust, and Privacy
+Because BatchDispatch is a custom, community-developed tool for Lasagna Love volunteers rather than a commercial product from a large corporation, you may encounter a security warning during installation.
+
+🛡️ Why do I see a "Windows Protected Your PC" warning?
+Windows uses a system called SmartScreen to verify software. Because this app is "unsigned" (which requires a costly annual corporate certificate), Windows flags it as being from an "Unknown Publisher".
+
+To install, simply:
+
+Click "More Info" on the blue warning box.
+
+Click "Run anyway" to launch the installer.
+
+🤝 Our Commitment to You and Our Neighbors
+Local Data Only: BatchDispatch is built with a "Privacy First" architecture. Every piece of requester data you import stays on your hard drive in a local encrypted folder (~/.batch_dispatch_app). No neighbor information is ever uploaded to a cloud server or shared by this application.
+
+No Hidden Trackers: There are no analytics, "phone-home" features, or hidden background processes. The app only connects to the internet if you explicitly click the "Visit Lasagna Love" link in the help menu.
+
+Open Source & Transparent: This tool was created by a fellow volunteer at DragonWire Studios. The source code is available on GitHub for anyone in the community to audit, ensuring the highest standards of transparency and safety.
+
+🛡️ Verified Safety
+If you or your IT department have concerns, you are encouraged to scan the BatchDispatch_Setup.exe with any reputable antivirus software (such as Microsoft Defender or Malwarebytes) before installation. You will find that the application is clean and focused solely on making your volunteer work easier.
+
+
 🏢 Address 2 / Apartment Highlighting
 
 In high-density areas, missing an apartment number is the most common cause of delivery delay.

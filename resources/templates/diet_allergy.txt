@@ -1,0 +1,12 @@
+Hi [First Name], my name is [MyName] with Lasagna Love.
+I'm excited to share that I am working to prepare your lasagna!
+First, I will need to confirm the following details with you:
+Feeding: [Family Size]
+Address: [Address 1] [Address 2], [City]
+To ensure your lasagna gets to you, please confirm all the information above is still accurate.
+Additionally, if your front door is not visible from the street or driveway, please let me know how to find you!
+--Wait for response--
+
+Your request indicated you have dietary restrictions, and I want to confirm the specifics with you.
+Can you share any additional information regarding ingredient or preparation concerns?
+I can share the labels for each ingredient if that is helpful.
