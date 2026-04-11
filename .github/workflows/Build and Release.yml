@@ -29,13 +29,13 @@ jobs:
     
     - name: Compile Inno Setup
       run: |
-          iscc setup.iss
+          iscc release_config.iss
     
     - name: Create Release
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
-        files: release_config.yml
+        files: Output/BatchDispatch_Setup.exe
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
