@@ -7,6 +7,7 @@ from __future__ import annotations
 import datetime as dt
 from pathlib import Path
 from typing import List, Optional
+import re
 
 import pandas as pd
 
@@ -144,6 +145,7 @@ def save_reports(outreach_text: str, delivery_text: str, export_dir: Path, user_
         path.write_text(outreach_text, encoding="utf-8")
         
     if delivery_text:
-        safe_name = (user_name or 'User').replace(' ', '_')
+        # Sanitize name for filesystem safety
+        safe_name = re.sub(r'[\\/*?:"<>|]', "", user_name or "User").replace(" ", "_")
         path = export_dir / f"Delivery_{safe_name}_{ts:%Y%m%d}.txt"
         path.write_text(delivery_text, encoding="utf-8")

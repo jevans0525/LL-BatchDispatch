@@ -8,6 +8,7 @@ import json
 import re
 import shutil
 import io
+import urllib.request
 import logging
 import traceback
 import pandas as pd
@@ -25,13 +26,15 @@ from PySide6.QtGui import (
     QKeySequence, QShortcut, QPalette, QColor, QAction, QCursor, QDesktopServices,
     QSyntaxHighlighter, QTextCharFormat, QTextDocument, QAbstractTextDocumentLayout, QPixmap, QIcon
 )
-from PySide6.QtCore import Qt, QTimer, QUrl, QSortFilterProxyModel
+from PySide6.QtCore import Qt, QTimer, QUrl, QSortFilterProxyModel, Signal
 
 # Ensure these modules are in the same folder
 from dialogs import ConfigDialog, FirstRunDialog, TemplateDialog, ResultsDialog, TagHighlighter, LoginDialog
 from models import TrackingModel
 import parsing
 import reports
+
+VERSION = "1.0.0"
 
 APP_DIR = Path.home() / ".batch_dispatch_app"
 RESOURCES_DIR = Path(__file__).parent / "resources"
@@ -206,6 +209,8 @@ class HighlightDelegate(QStyledItemDelegate):
             super().paint(painter, option, index)
 
 class MainWindow(QMainWindow):
+    update_detected = Signal(str, str) # version, download_url
+
     def __init__(self, settings: dict):
         super().__init__()
         self.setWindowTitle("BatchDispatch")
@@ -462,6 +467,10 @@ class MainWindow(QMainWindow):
         report_action.triggered.connect(self.report_bug)
         help_menu.addAction(report_action)
 
+        update_action = QAction("Check for Updates...", self)
+        update_action.triggered.connect(lambda: self.check_for_updates(manual=True))
+        help_menu.addAction(update_action)
+
         help_menu.addSeparator()
         
         about_action = QAction("&About BatchDispatch", self)
@@ -527,6 +536,43 @@ class MainWindow(QMainWindow):
             "<b>BatchDispatch</b><br><br>"
             "A specialized tool for Lasagna Love volunteers to manage outreach and deliveries.<br>"
             "Version 1.0.0")
+
+    def check_for_updates(self, manual=False):
+        """Checks a remote URL for the latest version string."""
+        update_url = "https://api.github.com/repos/jevans0525/LL-BatchDispatch/releases/latest"
+        
+        try:
+            with urllib.request.urlopen(update_url, timeout=5) as response:
+                data = json.loads(response.read().decode())
+                latest_version = data.get("tag_name", "1.0.0").lstrip('v')
+                download_url = data.get("html_url", "https://lasagnalove.org")
+
+                # Proper version comparison
+                def v_tuple(v): return tuple(map(int, (re.sub(r'[^0-9.]', '', v).split('.'))))
+                
+                if v_tuple(latest_version) > v_tuple(VERSION):
+                    self.update_detected.emit(latest_version, download_url)
+                elif manual:
+                    # Manual check needs to return to main thread too
+                    QTimer.singleShot(0, lambda: QMessageBox.information(
+                        self, "Up to Date", f"You are running the latest version (v{VERSION})."))
+        except Exception as e:
+            error_text = str(e)
+            logging.error(f"Failed to check for updates: {error_text}")
+            if manual:
+                QTimer.singleShot(0, lambda: QMessageBox.warning(
+                    self, "Update Check Failed", f"Could not reach the update server.\n\nError: {error_text}"))
+
+    def show_update_dialog(self, version: str, url: str):
+        """Displays the update prompt on the main thread."""
+        reply = QMessageBox.question(
+            self, "Update Available",
+            f"A newer version ({version}) of BatchDispatch is available.\n\n"
+            "Would you like to visit the download page now?",
+            QMessageBox.Yes | QMessageBox.No
+        )
+        if reply == QMessageBox.Yes:
+            QDesktopServices.openUrl(QUrl(url))
 
     def toggle_dock(self, checked):
         self.dock.setVisible(checked)
