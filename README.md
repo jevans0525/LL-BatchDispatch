@@ -5,7 +5,7 @@ Developed by James Evans for Lasagna Love, BatchDispatch is a professional-grade
 
 1. Installation & Setup
 
-BatchDispatch is deployed via a professional installation wizard for a seamless "concierge" experience.
+Download the latest version [here](https://github.com/jevans0525/LL-BatchDispatch/releases/download/v0.99/BatchDispatch_Setup.exe)
 
 Run the Installer: Open BatchDispatch_Setup.exe.
 
