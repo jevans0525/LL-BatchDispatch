@@ -1,4 +1,4 @@
-define MyAppName "BatchDispatch"
+
 define MyAppVersion "0.9"
 define MyAppPublisher "Dragonwire and LasagnaLove"
 define MyAppURL "https://www.lasagnalove.org"
