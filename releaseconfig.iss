@@ -1,10 +1,10 @@
-[Setup]
-define MyAppName "LLBatchDispatch"
-define MyAppVersion "0.9"
-define MyAppPublisher "Dragonwire and LasagnaLove"
-define MyAppURL "https://www.lasagnalove.org"
-define MyAppExeName "BatchDispatch.exe"
 #define MyAppName "LLBatchDispatch"
+#define MyAppVersion "0.9"
+#define MyAppPublisher "Dragonwire and LasagnaLove"
+#define MyAppURL "https://www.lasagnalove.org"
+#define MyAppExeName "BatchDispatch.exe"
+
+[Setup]
 
 
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
